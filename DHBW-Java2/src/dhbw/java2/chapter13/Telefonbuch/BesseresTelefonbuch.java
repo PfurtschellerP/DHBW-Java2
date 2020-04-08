@@ -22,13 +22,13 @@ public class BesseresTelefonbuch {
 		if (anzahlEintraege == eintraege.length) {
 			throw new IllegalStateException("Das Telefonbuch ist schon voll!");
 		}
-		int index = ++anzahlEintraege;													// Erhöhen der Anzahl der Einträge und setzen des Index auf den letzen Eintrag
-		while(--index > 0) {															// Durchlaufe das Feld von rechts nach links
-			if(eintraege[index-1] != null) {											// Überprüfen, ob der zu überprüfende Eintrag nicht null ist
-				if (eintrag.getName().compareTo(eintraege[index-1].getName()) < 0) {	// Überprüfen, ob die Feldkomponente größer als der neue Wert ist
+		int index = ++anzahlEintraege;														// Erhöhen der Anzahl der Einträge und setzen des Index auf den letzen Eintrag
+		while(--index > 0) {																// Durchlaufe das Feld von rechts nach links
+			if(eintraege[index-1] != null) {												// Überprüfen, ob der zu überprüfende Eintrag nicht null ist
+				if (eintrag.getName().compareTo(eintraege[index-1].getName()) < 0) {		// Überprüfen, ob die Feldkomponente größer als der neue Wert ist
 					eintraege[index] = eintraege[index-1];
 				} else {
-					break;																// neue Position gefunden
+					break;																	// neue Position gefunden
 				}
 			} else {
 				break;
