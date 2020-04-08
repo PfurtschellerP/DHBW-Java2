@@ -4,8 +4,17 @@ public abstract class Numbers {
     protected int count = 0;                // Anzahl der abgespeicherten Zahlen
     protected int comparisons = 0;
 
+    /**
+     * Fügt eine Zahl zum Feld hinzu
+     * @param key Hinzuzufügende Zahl
+     */
     public abstract void add(int key);      // fügt eine Zahl hinzu
 
+    /**
+     * Sucht eine Zahl in dem Feld
+     * @param key Zu suchende Zahl
+     * @return Index der gesuchten Zahl
+     */
     public abstract int search(int key);    // sucht den Index einer Zahl (-1: fehlt)
 
     public void print() {                   // Ausgabe der abgespeicherten Zahlen
@@ -28,6 +37,7 @@ public abstract class Numbers {
         print();
         for (int key = 0; key < 10; key++) {
             System.out.println(key + "? " + search(key));
+            print();										// erneute Ausgabe des ggf. umgebauten Feldes
         }
     }
     
