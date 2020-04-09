@@ -1,6 +1,6 @@
-package dhbw.java2.chapter13.Telefonbuch;
+package dhbw.java2.chapter13.Telefonbuch.VerbessertesTelefonbuch;
 
-import dhbw.java2.chapter13.Telefonbuch.EinfachesTelefonbuch.Telefonbucheintrag;
+//import dhbw.java2.chapter13.Telefonbuch.EinfachesTelefonbuch.Telefonbucheintrag;
 
 
 public class BesseresTelefonbuch {
@@ -41,19 +41,29 @@ public class BesseresTelefonbuch {
 	
 	/**
 	 * Sucht einen Eintrag innerhalb des Telefonbuchs und gibt ihn zurück
-	 * @param name Name der Person / des Unternehmens, nach welchem gesucht wird
-	 * @return Eintrag der Person / des Unternehmens (wenn möglich)
+	 * @param name Name des Unternehmens, nach welchem gesucht wird
+	 * @return Eintrag des Unternehmens (wenn möglich)
 	 */
 	public Telefonbucheintrag search(String name) {
 		return anzahlEintraege == 0 ? null : search(name, 0, anzahlEintraege-1);
 	}
 	
+	/**
+	 * Sucht einen Eintrag innerhalb des Telefonbuchs und gibt ihn zurück
+	 * @param name Name der Persons, nach welcher gesucht wird
+	 * @return Eintrag der Person (wenn möglich)
+	 */
+	public Telefonbucheintrag search(String vorName, String Nachname) {
+		String name = Nachname + " " + vorName;
+		return anzahlEintraege == 0 ? null : search(name, 0, anzahlEintraege-1);
+	}
+	
 	private Telefonbucheintrag search(String name, int fromIndex, int toIndex) {
 		if (toIndex - fromIndex == 1) {															// nur noch eine Feldkomponente?
-			return eintraege[fromIndex].getName().equals(name) ? eintraege[fromIndex] : null;
+			return eintraege[fromIndex].getVollerName().equals(name) ? eintraege[fromIndex] : null;
 		}
 		int centerIndex = (fromIndex + toIndex) / 2;
-		if (eintraege[centerIndex].getName().compareTo(name) > 0) {								// Schlüsselvergleich (Ist der Eintrag in der Mitte größer als der, den wir suchen?)
+		if (eintraege[centerIndex].getVollerName().compareTo(name) > 0) {								// Schlüsselvergleich (Ist der Eintrag in der Mitte größer als der, den wir suchen?)
 			return search(name, fromIndex, centerIndex);										// linke Hälfte durchsuchen
 		} else {
 			return search(name, centerIndex, toIndex);											// rechte Hälfte durchsuchen
@@ -92,10 +102,13 @@ public class BesseresTelefonbuch {
 	public static void main(String[] args) {
 		BesseresTelefonbuch tb = new BesseresTelefonbuch();
 		
-		Telefonbucheintrag test = new Telefonbucheintrag("Max Meier", "012345678");
-		Telefonbucheintrag test2 = new Telefonbucheintrag("Peter Müller", "0987654312");
-		Telefonbucheintrag test3 = new Telefonbucheintrag("Bob der Baumeister", "112233445566");
-		Telefonbucheintrag test4 = new Telefonbucheintrag("Alfons Bauer", "1325451545");
+		Telefonbucheintrag test = new Telefonbucheintrag("Max", "Meier", "012345678");
+		Telefonbucheintrag test2 = new Telefonbucheintrag("Peter", "Müller", "0987654312");
+		Telefonbucheintrag test3 = new Telefonbucheintrag("Bob", "Baumeister", "112233445566");
+		Telefonbucheintrag test4 = new Telefonbucheintrag("Alfons", "Bauer", "1325451545");
+		Telefonbucheintrag test5 = new Telefonbucheintrag("Peter", "Adler", "123456789");
+		Telefonbucheintrag test6 = new Telefonbucheintrag("Dachbau GmbH", "81512345");
+		Telefonbucheintrag test7 = new Telefonbucheintrag("Tobias", "Meier", "012345678");
 		
 //		System.out.println(test.toString());
 		
@@ -103,10 +116,14 @@ public class BesseresTelefonbuch {
 		tb.add(test2);
 		tb.add(test3);
 		tb.add(test4);
+		tb.add(test5);
+		tb.add(test6);
+		tb.add(test7);
 		
 		System.out.println(tb.toString());
 		
-		System.out.println(tb.search("Max Meier"));
+		System.out.println(tb.search("Max", "Meier"));
+		System.out.println(tb.search("Dachbau GmbH"));
 		
 	}
 }
