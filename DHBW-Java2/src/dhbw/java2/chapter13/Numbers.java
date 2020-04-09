@@ -1,14 +1,14 @@
 package dhbw.java2.chapter13;
 public abstract class Numbers {
-    protected int[] data = new int[31];     // Feld für abgespeicherte Zahlen
+    protected int[] data = new int[31];     // Feld fÃ¼r abgespeicherte Zahlen
     protected int count = 0;                // Anzahl der abgespeicherten Zahlen
     protected int comparisons = 0;
 
     /**
-     * Fügt eine Zahl zum Feld hinzu
-     * @param key Hinzuzufügende Zahl
+     * Fï¿½gt eine Zahl zum Feld hinzu
+     * @param key Hinzuzufï¿½gende Zahl
      */
-    public abstract void add(int key);      // fügt eine Zahl hinzu
+    public abstract void add(int key);      // fÃ¼gt eine Zahl hinzu
 
     /**
      * Sucht eine Zahl in dem Feld
@@ -25,7 +25,7 @@ public abstract class Numbers {
         System.out.println();
     }
 
-    public void demo() {                    // Vorführungsmethode
+    public void demo() {                    // VorfÃ¼hrungsmethode
         print();
         add(6);
         print();

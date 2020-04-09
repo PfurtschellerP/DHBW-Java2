@@ -5,7 +5,7 @@ public class NumbersWithSelfOrganizingSearch extends Numbers {
 	@Override
 	public void add(int key) {
 		if (count == data.length) {
-			throw new IllegalStateException("Alle Plätze sind belegt");	
+			throw new IllegalStateException("Alle PlÃ¤tze sind belegt");	
 		}
 		data[count++] = key;
 	}
@@ -16,7 +16,7 @@ public class NumbersWithSelfOrganizingSearch extends Numbers {
 			if (data[index] == key) {
 				comparisons++;
 				refactorArray(index);					// ziehe die gefundene Zahl nach vorne
-				return 0;								// gebe den neuen Index (0) zurück
+				return 0;								// gebe den neuen Index (0) zurÃ¼ck
 			}
 			comparisons++;
 		}

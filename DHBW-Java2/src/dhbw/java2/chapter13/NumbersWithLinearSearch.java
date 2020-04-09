@@ -5,7 +5,7 @@ public class NumbersWithLinearSearch extends Numbers {
 	@Override
 	public void add(int key) {
 		if (count == data.length) {
-			throw new IllegalStateException("Alle Pl‰tze sind belegt");	
+			throw new IllegalStateException("Alle Pl√§tze sind belegt");	
 		}
 		data[count++] = key;
 	}

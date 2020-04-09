@@ -5,22 +5,22 @@ public class NumbersWithExponentialSearch extends Numbers {
 	@Override
 	public void add(int key) {
         if (count == data.length) {
-            throw new IllegalStateException("Alle Pl‰tze sind belegt.");
+            throw new IllegalStateException("Alle Pl√§tze sind belegt.");
         }
         int index = ++count;
         while (--index > 0) {                               // durchlaufe Feld von rechts nach links
-            if (data[index-1] > key) {                      // Feldkomponente grˆﬂer als neuer Wert?
+            if (data[index-1] > key) {                      // Feldkomponente gr√∂√üer als neuer Wert?
                 data[index] = data[index-1];                // schiebt Feldkomponente nach rechts
             } else {
-                break;                                      // Einf¸geposition gefunden
+                break;                                      // Einf√ºgeposition gefunden
             }
         }
-        data[index] = key;                                  // neuen Wert einf¸gen
+        data[index] = key;                                  // neuen Wert einfÔøΩgen
 	}
 
 	@Override
 	public int search(int key) {
-		// Unbehandelte Ausnahme wenn index*=2 grˆﬂer als das Array ist
+		// Unbehandelte Ausnahme wenn index*=2 gr√∂√üer als das Array ist
 		int index = 1;
 		System.out.println(index);
 		comparisons++;
@@ -34,21 +34,21 @@ public class NumbersWithExponentialSearch extends Numbers {
 	}
 	
 	
-    public int binarySearch(int key) {                      // ¸berpr¸ft nur "mittlere" Elemente
+    public int binarySearch(int key) {                      // √úberpr√ºft nur "mittlere" Elemente
         return count == 0 ? -1 : binarySearch(key, 0, count);     // ganzes Feld durchsuchen
     }
 
     private int binarySearch(int key, int fromIndex, int toIndex) {
         if (toIndex - fromIndex == 1) {                     // nur noch eine Feldkomponente?
         	comparisons++;
-            return data[fromIndex] == key ? fromIndex : -1; // Schl¸sselvergleich
+            return data[fromIndex] == key ? fromIndex : -1; // Schl√ºsselvergleich
         }
         int centerIndex = (fromIndex + toIndex) / 2;
         comparisons++;
-        if (data[centerIndex] > key) {                      // Schl¸sselvergleich
-            return binarySearch(key, fromIndex, centerIndex);     // linke H‰lfte durchsuchen
+        if (data[centerIndex] > key) {                      // Schl√ºsselvergleich
+            return binarySearch(key, fromIndex, centerIndex);     // linke H√§lfte durchsuchen
         } else {
-            return binarySearch(key, centerIndex, toIndex);       // rechte H‰lfte durchsuchen
+            return binarySearch(key, centerIndex, toIndex);       // rechte H√§lfte durchsuchen
         }
     }
 

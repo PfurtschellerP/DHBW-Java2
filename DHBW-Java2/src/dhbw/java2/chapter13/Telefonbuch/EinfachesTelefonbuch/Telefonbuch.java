@@ -3,17 +3,17 @@ package dhbw.java2.chapter13.Telefonbuch.EinfachesTelefonbuch;
 public class Telefonbuch {
 
 	/**
-	 * Einträge des Telefonbuchs
+	 * EintrÃ¤ge des Telefonbuchs
 	 */
 	private Telefonbucheintrag[] eintraege = new Telefonbucheintrag[100];
 	/**
-	 * Anzahl der Einträge, die sich zur Zeit im Telefonbuch befinden
+	 * Anzahl der EintrÃ¤ge, die sich zur Zeit im Telefonbuch befinden
 	 */
 	private int anzahlEintraege = 0;
 	
 	/**
-	 * Fügt dem Telefonbuch einen neuen Eintrag hinzu
-	 * @param eintrag Der Eintrag, der hinzugefügt werden soll
+	 * FÃ¼gt dem Telefonbuch einen neuen Eintrag hinzu
+	 * @param eintrag Der Eintrag, der hinzugefÃ¼gt werden soll
 	 */
 	public void add(Telefonbucheintrag eintrag) {
 		if (anzahlEintraege == eintraege.length) {
@@ -24,9 +24,9 @@ public class Telefonbuch {
 	}
 	
 	/**
-	 * Sucht einen Eintrag innerhalb des Telefonbuchs und gibt ihn zurück
+	 * Sucht einen Eintrag innerhalb des Telefonbuchs und gibt ihn zurÃ¼ck
 	 * @param name Name der Person / des Unternehmens, nach welchem gesucht wird
-	 * @return Eintrag der Person / des Unternehmens (wenn möglich)
+	 * @return Eintrag der Person / des Unternehmens (wenn mÃ¶glich)
 	 */
 	public Telefonbucheintrag search(String name) {
 		for (Telefonbucheintrag telefonbucheintrag : eintraege) {
@@ -38,8 +38,8 @@ public class Telefonbuch {
 	}
 	
 	/**
-	 * Gibt eine Darstellung eines Telefonbuchs und seiner Einträge als String aus
-	 * @return Eine String Darstellung eines Telefonbuchs und seiner Einträge
+	 * Gibt eine Darstellung eines Telefonbuchs und seiner EintrÃ¤ge als String aus
+	 * @return Eine String Darstellung eines Telefonbuchs und seiner EintrÃ¤ge
 	 */
 	@Override
 	public String toString() {
@@ -70,7 +70,7 @@ public class Telefonbuch {
 		Telefonbuch tb = new Telefonbuch();
 		
 		Telefonbucheintrag test = new Telefonbucheintrag("Max Meier", "012345678");
-		Telefonbucheintrag test2 = new Telefonbucheintrag("Peter Müller", "0987654312");
+		Telefonbucheintrag test2 = new Telefonbucheintrag("Peter MÃ¼ller", "0987654312");
 		Telefonbucheintrag test3 = new Telefonbucheintrag("Bob der Baumeister", "112233445566");
 		
 //		System.out.println(test.toString());

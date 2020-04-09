@@ -6,26 +6,26 @@ package dhbw.java2.chapter13.Telefonbuch.VerbessertesTelefonbuch;
 public class BesseresTelefonbuch {
 
 	/**
-	 * Einträge des Telefonbuchs
+	 * Eintrï¿½ge des Telefonbuchs
 	 */
 	private Telefonbucheintrag[] eintraege = new Telefonbucheintrag[100];
 	/**
-	 * Anzahl der Einträge, die sich zur Zeit im Telefonbuch befinden
+	 * Anzahl der Eintrï¿½ge, die sich zur Zeit im Telefonbuch befinden
 	 */
 	private int anzahlEintraege = 0;
 	
 	/**
-	 * Fügt dem Telefonbuch einen neuen Eintrag hinzu
-	 * @param eintrag Der Eintrag, der hinzugefügt werden soll
+	 * FÃ¼gt dem Telefonbuch einen neuen Eintrag hinzu
+	 * @param eintrag Der Eintrag, der hinzugefÃ¼gt werden soll
 	 */
 	public void add(Telefonbucheintrag eintrag) {
 		if (anzahlEintraege == eintraege.length) {
 			throw new IllegalStateException("Das Telefonbuch ist schon voll!");
 		}
-		int index = ++anzahlEintraege;														// Erhöhen der Anzahl der Einträge und setzen des Index auf den letzen Eintrag
+		int index = ++anzahlEintraege;														// ErhÃ¶hen der Anzahl der EintrÃ¤ge und setzen des Index auf den letzen Eintrag
 		while(--index > 0) {																// Durchlaufe das Feld von rechts nach links
-			if(eintraege[index-1] != null) {												// Überprüfen, ob der zu überprüfende Eintrag nicht null ist
-				if (eintrag.getName().compareTo(eintraege[index-1].getName()) < 0) {		// Überprüfen, ob die Feldkomponente größer als der neue Wert ist
+			if(eintraege[index-1] != null) {												// ÃœberprÃ¼fen, ob der zu Ã¼berprÃ¼fende Eintrag nicht null ist
+				if (eintrag.getName().compareTo(eintraege[index-1].getName()) < 0) {		// ÃœberprÃ¼fen, ob die Feldkomponente grÃ¶ÃŸer als der neue Wert ist
 					eintraege[index] = eintraege[index-1];
 				} else {
 					break;																	// neue Position gefunden
@@ -40,18 +40,18 @@ public class BesseresTelefonbuch {
 	}
 	
 	/**
-	 * Sucht einen Eintrag innerhalb des Telefonbuchs und gibt ihn zurück
+	 * Sucht einen Eintrag innerhalb des Telefonbuchs und gibt ihn zurï¿½ck
 	 * @param name Name des Unternehmens, nach welchem gesucht wird
-	 * @return Eintrag des Unternehmens (wenn möglich)
+	 * @return Eintrag des Unternehmens (wenn mï¿½glich)
 	 */
 	public Telefonbucheintrag search(String name) {
 		return anzahlEintraege == 0 ? null : search(name, 0, anzahlEintraege-1);
 	}
 	
 	/**
-	 * Sucht einen Eintrag innerhalb des Telefonbuchs und gibt ihn zurück
+	 * Sucht einen Eintrag innerhalb des Telefonbuchs und gibt ihn zurÃ¼ck
 	 * @param name Name der Persons, nach welcher gesucht wird
-	 * @return Eintrag der Person (wenn möglich)
+	 * @return Eintrag der Person (wenn mÃ¶glich)
 	 */
 	public Telefonbucheintrag search(String vorName, String Nachname) {
 		String name = Nachname + " " + vorName;
@@ -63,16 +63,16 @@ public class BesseresTelefonbuch {
 			return eintraege[fromIndex].getVollerName().equals(name) ? eintraege[fromIndex] : null;
 		}
 		int centerIndex = (fromIndex + toIndex) / 2;
-		if (eintraege[centerIndex].getVollerName().compareTo(name) > 0) {								// Schlüsselvergleich (Ist der Eintrag in der Mitte größer als der, den wir suchen?)
-			return search(name, fromIndex, centerIndex);										// linke Hälfte durchsuchen
+		if (eintraege[centerIndex].getVollerName().compareTo(name) > 0) {								// SchlÃ¼sselvergleich (Ist der Eintrag in der Mitte grÃ¶ÃŸer als der, den wir suchen?)
+			return search(name, fromIndex, centerIndex);										// linke Halfte durchsuchen
 		} else {
-			return search(name, centerIndex, toIndex);											// rechte Hälfte durchsuchen
+			return search(name, centerIndex, toIndex);											// rechte HÃ¤lfte durchsuchen
 		}
 	}
 	
 	/**
-	 * Gibt eine Darstellung eines Telefonbuchs und seiner Einträge als String aus
-	 * @return Eine String Darstellung eines Telefonbuchs und seiner Einträge
+	 * Gibt eine Darstellung eines Telefonbuchs und seiner EintrÃ¤ge als String aus
+	 * @return Eine String Darstellung eines Telefonbuchs und seiner EintrÃ¤ge
 	 */
 	@Override
 	public String toString() {
@@ -103,7 +103,7 @@ public class BesseresTelefonbuch {
 		BesseresTelefonbuch tb = new BesseresTelefonbuch();
 		
 		Telefonbucheintrag test = new Telefonbucheintrag("Max", "Meier", "012345678");
-		Telefonbucheintrag test2 = new Telefonbucheintrag("Peter", "Müller", "0987654312");
+		Telefonbucheintrag test2 = new Telefonbucheintrag("Peter", "MÃ¼ller", "0987654312");
 		Telefonbucheintrag test3 = new Telefonbucheintrag("Bob", "Baumeister", "112233445566");
 		Telefonbucheintrag test4 = new Telefonbucheintrag("Alfons", "Bauer", "1325451545");
 		Telefonbucheintrag test5 = new Telefonbucheintrag("Peter", "Adler", "123456789");
