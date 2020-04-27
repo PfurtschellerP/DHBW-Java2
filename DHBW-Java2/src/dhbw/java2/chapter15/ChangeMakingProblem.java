@@ -8,6 +8,12 @@ import java.util.Arrays;
  */
 public class ChangeMakingProblem {
 
+	/**
+	 * Berechnet für einen gegebenen Cent Wert die Zerlegung in Scheinen und Münzen
+	 * @param values Mögliche Schein-/Münzwerte
+	 * @param sum Cent Betrag
+	 * @return
+	 */
 	public static int[] change(int[] values, int sum) {
 		
 		int[] result = new int[values.length];
@@ -42,7 +48,7 @@ public class ChangeMakingProblem {
 	public static void main(String[] args) {
 		
 		System.out.println(Arrays.toString(change(new int[] {200, 100, 50, 20, 10, 5, 2, 1}, 469)));
-		System.out.println(Arrays.toString(change(new int[] {10000, 5000, 2000, 1000, 500, 200, 100, 50, 20, 10, 5, 2, 1}, 12569, "EUR")));
+//		System.out.println(Arrays.toString(change(new int[] {10000, 5000, 2000, 1000, 500, 200, 100, 50, 20, 10, 5, 2, 1}, 12569, "EUR")));
 		
 	}
 
