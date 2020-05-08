@@ -1,4 +1,7 @@
 package dhbw.java2.chapter16.Lists;
+
+import javax.swing.Spring;
+
 public class LinkedList implements List {
     protected Node first = null;            // erster Knoten der Liste
 
@@ -106,17 +109,37 @@ public class LinkedList implements List {
         return result;
     }
     
-//    private Node getLast() {
-//    	Node current = first;
-//    	while(current.getNext() != null) {
-//    		current = current.getNext();
-//    	}
-//    	return current;
-//    }
-//    
-//    public LinkedList reverse(LinkedList list) {
-//    	LinkedList newList = new LinkedList();
-//    	newList.first = list.getLast();
-//    	
-//    }
+    /**
+     * Dreht eine Liste um
+     * @return eine umgedrehte Liste
+     */
+    public LinkedList reverse() {
+    	LinkedList newList = new LinkedList();
+    	
+    	int length = this.getLength();				// Länge der ursprünglichen Liste zwischensperichern
+    	Node previous = null;						// Erste Node der neuen Liste
+    	for(int i = 1; i <= length; i++) {			// So oft durchführen, bis wir die ursprüngliche Liste komplett abgelaufe
+    		Node current = this.getFirst();			
+    		while(current.getNext() != null) {		// zum Ende der alten Liste gehen
+        		current = current.getNext();
+        	}
+        	newList.insert(current, previous);		// letzte Node der alten Liste in die neue setzen
+        	this.remove(current);					// letzte Node in der alten Liste löschen
+        	previous = current;						// setze die aktuelle Node als letzte
+    	}
+    	return newList;								// neue Liste zurückgeben
+    }
+    
+    public static void main(String[] args) {
+    	LinkedList oldList = new LinkedList();
+    	Node one = new Node(1);
+    	Node two = new Node(2);
+    	Node three = new Node (3);
+    	oldList.insert(one, null);
+    	oldList.insert(two, one);
+    	oldList.insert(three, two);
+    	System.out.println(oldList);
+    	System.out.println(oldList.reverse());
+    	
+    }
 }
